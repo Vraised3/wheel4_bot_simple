@@ -1,0 +1,17 @@
+digraph G {
+node [shape=box];
+"BaseBody" [label="BaseBody"];
+"BL_Wheel" [label="BL_Wheel"];
+"BR_Wheel" [label="BR_Wheel"];
+"FL_Wheel" [label="FL_Wheel"];
+"FR_Wheel" [label="FR_Wheel"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"BaseBody" -> "BB_BLW_Joint" [label="xyz: 0.215473 0.152957 0.09587 \nrpy: 0 -1.5708 0"]
+"BB_BLW_Joint" -> "BL_Wheel"
+"BaseBody" -> "BB_BRW_Joint" [label="xyz: -0.215473 0.152957 0.09587 \nrpy: 0 -1.5708 0"]
+"BB_BRW_Joint" -> "BR_Wheel"
+"BaseBody" -> "BB_FLW_Joint" [label="xyz: 0.215473 -0.152957 0.09587 \nrpy: 0 -1.5708 0"]
+"BB_FLW_Joint" -> "FL_Wheel"
+"BaseBody" -> "BB_FRW_Joint" [label="xyz: -0.215473 -0.152957 0.09587 \nrpy: 0 -1.5708 0"]
+"BB_FRW_Joint" -> "FR_Wheel"
+}

@@ -1,0 +1,25 @@
+wheel4_bot:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  FLW_Drive_Controller:
+    type: effort_controllers/JointVelocityController
+    joint: BB_FLW_Joint
+    pid: {p: 100, i: 0.01, d: 10.0}
+
+  BLW_Drive_Controller:
+    type: effort_controllers/JointVelocityController
+    joint: BB_BLW_Joint
+    pid: {p: 100, i: 0.01, d: 10.0}
+
+  FRW_Drive_Controller:
+    type: effort_controllers/JointVelocityController
+    joint: BB_FRW_Joint
+    pid: {p: 100, i: 0.01, d: 10.0}
+
+  BRW_Drive_Controller:
+    type: effort_controllers/JointVelocityController
+    joint: BB_BRW_Joint
+    pid: {p: 100, i: 0.01, d: 10.0}

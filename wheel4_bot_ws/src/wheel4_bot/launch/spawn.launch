@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <param name="robot_description" command="cat '$(find wheel4_bot)/urdf/wheel4_bot.urdf'" />
+
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0.7"/>
+
+    <node name="wheel4_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model wheel4_bot -x $(arg x) -y $(arg y) -z $(arg z)"/>
+
+</launch>

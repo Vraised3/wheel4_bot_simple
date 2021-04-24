@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<robot name="wheel4_bot">
+	<gazebo>
+	
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+			<robotNamespace>/wheel4_bot</robotNamespace>
+		<legacyModeNS>true</legacyModeNS>
+		</plugin>
+		
+	</gazebo>
+	
+	<!-- <link name="world"/> -->
+
+	<gazebo reference="BaseBody">
+		<material>Gazebo/Orange</material>
+	</gazebo>
+	<gazebo reference="FL_Wheel">
+		<material>Gazebo/Black</material>
+	</gazebo>
+	<gazebo reference="BL_Wheel">
+		<material>Gazebo/Black</material>
+	</gazebo>
+	<gazebo reference="FR_Wheel">
+		<material>Gazebo/Black</material>
+	</gazebo>
+	<gazebo reference="BR_Wheel">
+		<material>Gazebo/Black</material>
+	</gazebo>
+
+	<link name="BaseBody">
+		<inertial>
+			<origin xyz="0.0 0.0 0.100000" rpy="0.0 0.0 0.0"/>
+			<mass value="2.0"/>
+			<inertia
+				ixx="1" ixy="0" ixz="0"
+				iyx="0" iyy="1" iyz="0"
+				izx="0" izy="0" izz="1" />
+		</inertial>
+		<visual>
+			<origin xyz="0.0 0.0 0.100000" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<box size="0.368670 0.496146 0.096127"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0.0 0.0 0.100000" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<box size="0.368670 0.496146 0.096127"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="BB_FLW_Joint" type="continuous">
+		<parent link="BaseBody"/>
+		<child link="FL_Wheel"/>
+		<origin xyz="0.215473 -0.152957 0.095870" rpy="0.0 -1.570400 0.0"/>
+		<limit effort="100" velocity="100"/>
+		<axis xyz="0 0 1"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+
+
+	<link name="FL_Wheel">
+		<inertial>
+			<origin xyz=" 0 0 0" rpy="0 0 0"/>
+			<mass value="5.0"/>
+			<inertia
+				ixx="1" ixy="0" ixz="0"
+				iyx="0" iyy="1" iyz="0"
+				izx="0" izy="0" izz="1" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.09" length="0.06"/>
+			</geometry>
+			<material name="Black">
+				<color rgba='0 0 0 1'/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.09" length="0.06"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="BB_BLW_Joint" type="continuous">
+		<parent link="BaseBody"/>
+		<child link="BL_Wheel"/>
+		<origin xyz="0.215473 0.152957 0.095870" rpy="0.0 -1.570400 0.0"/>
+		<limit effort="100" velocity="100"/>
+		<axis xyz="0 0 1"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+
+	<link name="BL_Wheel">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="5.0"/>
+			<inertia
+				ixx="1" ixy="0" ixz="0"
+				iyx="0" iyy="1" iyz="0"
+				izx="0" izy="0" izz="1" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.09" length="0.06"/>
+			</geometry>
+			<material name="Black">
+				<color rgba='0 0 0 1'/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.09" length="0.06"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="BB_FRW_Joint" type="continuous">
+		<parent link="BaseBody"/>
+		<child link="FR_Wheel"/>
+		<origin xyz="-0.215473 -0.152957 0.095870" rpy="0.0 -1.570400 0.0"/>
+		<limit effort="100" velocity="100"/>
+		<axis xyz="0 0 1"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+
+	<link name="FR_Wheel">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="5.0"/>
+			<inertia
+				ixx="1" ixy="0" ixz="0"
+				iyx="0" iyy="1" iyz="0"
+				izx="0" izy="0" izz="1" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.09" length="0.06"/>
+			</geometry>
+			<material name="Black">
+				<color rgba='0 0 0 1'/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.09" length="0.06"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="BB_BRW_Joint" type="continuous">
+		<parent link="BaseBody"/>
+		<child link="BR_Wheel"/>
+		<origin xyz="-0.215473 0.152957 0.095870" rpy="0.0 -1.570400 0.0"/>
+		<limit effort="100" velocity="100"/>
+		<axis xyz="0 0 1"/>
+		<dynamics damping="0.0" friction="0.0"/>
+	</joint>
+
+
+	<link name="BR_Wheel">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="5.0"/>
+			<inertia
+				ixx="1" ixy="0" ixz="0"
+				iyx="0" iyy="1" iyz="0"
+				izx="0" izy="0" izz="1" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.09" length="0.06"/>
+			</geometry>
+			<material name="Black">
+				<color rgba='0 0 0 1'/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.09" length="0.06"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="BB_LRF_Joint" type="fixed">
+		<parent link="BaseBody"/>
+		<child link="LRF"/>
+		<origin xyz="0.0 -0.195720 0.168818" rpy="0.0 0.0 -1.5707"/>
+	</joint>
+
+
+	<link name="LRF">
+		<inertial>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<mass value="2.0"/>
+			<inertia
+				ixx="1" ixy="0" ixz="0"
+				iyx="0" iyy="1" iyz="0"
+				izx="0" izy="0" izz="1" />
+		</inertial>
+		<visual>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<box size="0.078980 0.080584 0.051796"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<box size="0.078980 0.080584 0.051796"/>
+			</geometry>
+		</collision>
+	</link>
+
+  <gazebo reference="LRF">
+    <sensor type="gpu_ray" name="head_hokuyo_sensor">
+      <pose>0 0 0.0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>30.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+        <topicName>/wheel4_bot/laser/scan</topicName>
+        <frameName>LRF</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+<!-- 	<transmission name="FLW_Drive">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="BB_FLW_Joint">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="FLW_Motor">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="BLW_Drive">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="BB_BLW_Joint">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="BLW_Motor">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission> -->
+
+<!--   <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+    <updateRate>50</updateRate>
+    <leftJoint>BB_FLW_Joint</leftJoint>
+    <rightJoint>BB_FRW_Joint</rightJoint>
+    <wheelSeparation>0.430946</wheelSeparation>
+    <wheelDiameter>0.18</wheelDiameter>
+    <wheelAcceleration>1.0</wheelAcceleration>
+    <wheelTorque>20</wheelTorque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <robotBaseFrame>BaseBody</robotBaseFrame>
+    <odometrySource>1</odometrySource>
+    <publishWheelTF>true</publishWheelTF>
+    <publishOdom>true</publishOdom>
+    <publishWheelJointState>true</publishWheelJointState>
+    <legacyMode>false</legacyMode>
+  </plugin>
+
+
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+    <updateRate>50</updateRate>
+    <leftJoint>BB_BLW_Joint</leftJoint>
+    <rightJoint>BB_BRW_Joint</rightJoint>
+    <wheelSeparation>0.430946</wheelSeparation>
+    <wheelDiameter>0.18</wheelDiameter>
+    <wheelAcceleration>1.0</wheelAcceleration>
+    <wheelTorque>20</wheelTorque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <robotBaseFrame>BaseBody</robotBaseFrame>
+    <odometrySource>1</odometrySource>
+    <publishWheelTF>true</publishWheelTF>
+    <publishOdom>true</publishOdom>
+    <publishWheelJointState>true</publishWheelJointState>
+    <legacyMode>false</legacyMode>
+  </plugin> -->
+
+<gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>BB_FLW_Joint</leftJoint>
+      <rightJoint>BB_FRW_Joint</rightJoint>
+      <wheelSeparation>0.430946</wheelSeparation>
+      <wheelDiameter>0.18</wheelDiameter>
+      <torque>0.1</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>BaseBody</robotBaseFrame>
+      <!-- <legacyMode>true</legacyMode> -->
+    </plugin>
+</gazebo>
+
+<!-- 	<transmission name="FRW_Drive">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="BB_FRW_Joint">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="FRW_Motor">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+	<transmission name="BRW_Drive">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="BB_BRW_Joint">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="BRW_Motor">
+			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission> -->
+
+<!--   <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace>/</robotNamespace>
+    <leftFrontJoint>BB_FLW_Joint</leftFrontJoint>
+    <rightFrontJoint>BB_FRW_Joint</rightFrontJoint>
+    <leftRearJoint>BB_BLW_Joint</leftRearJoint>
+    <rightRearJoint>BB_BRW_Joint</rightRearJoint>
+    <wheelSeparation>0.430946</wheelSeparation>
+    <wheelDiameter>0.18</wheelDiameter>
+    <robotBaseFrame>BaseBody</robotBaseFrame>
+    <torque>20</torque>
+    <topicName>cmd_vel</topicName>
+    <broadcastTF>false</broadcastTF>
+  </plugin> -->
+
+</robot>

@@ -1,0 +1,25 @@
+<launch>
+
+  <param name="robot_description" command="cat $(find wheel4_bot)/urdf/wheel4_bot.urdf"/>
+  <arg name="gui" default="False" />
+  <param name="use_gui" value="$(arg gui)"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+  <rosparam file="$(find wheel4_bot)/config/wheel4_bot.yaml" command="load"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/wheel4_bot" args="
+    joint_state_controller 
+    FLW_Drive_Controller
+    BLW_Drive_Controller
+    FRW_Drive_Controller
+    BRW_Drive_Controller"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <!-- <remap from="/joint_states" to="/wheel4_bot/joint_states" /> -->
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" />
+
+  <!-- <node name="rstt_commander" pkg="wheel4_bot_scripts" type="ttcmd.py" output="screen" respawn="true" /> -->
+
+</launch>

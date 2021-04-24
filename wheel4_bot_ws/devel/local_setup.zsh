@@ -1,0 +1,1 @@
+/home/nam31e5516/Documents/PROJECTS/ROS_Learning/wheel4_bot_ws/devel/.private/catkin_tools_prebuild/local_setup.zsh
